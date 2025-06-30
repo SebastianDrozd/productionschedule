@@ -1,0 +1,227 @@
+.cardcontainer {
+    padding-bottom: .75rem;
+    display: flex;
+    flex-direction: column;
+    background-color: #1e293b80;
+    border-style: dashed;
+    border-width: 2px;
+    border-color: rgb(71 85 105 / var(--tw-border-opacity, 1));
+    width: 500px;
+    border-radius: 5px;
+    padding: 1em;
+}
+
+.cardheader {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.2rem;
+    padding-bottom: .75rem;
+    align-items: center;
+}
+
+.cardleft {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+}
+
+.cardlogo {
+    background-color: rgb(249 115 22 / var(--tw-bg-opacity, 1));
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 2.5rem;
+    width: 2.5rem;
+}
+
+.logotext {
+    color: white;
+}
+
+.textdiv {}
+
+.textheader {
+    font-weight: 700;
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+    color: white;
+}
+
+.textsub {
+    color: rgb(148 163 184 / var(--tw-text-opacity, 1));
+    letter-spacing: .05em;
+    text-transform: uppercase;
+    font-size: .75rem;
+    line-height: 1rem;
+    font-weight: 500;
+}
+
+.cardright {
+    display: flex;
+    gap: 1em;
+
+}
+
+.alertriangle {
+    color: rgb(249 115 22 / var(--tw-bg-opacity, 1));
+}
+
+.editbutton {
+    color: rgb(148 163 184 / var(--tw-text-opacity, 1));
+    cursor: pointer;
+}
+
+.cardbody {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 2rem;
+    padding-bottom: 4rem;
+    text-align: center;
+}
+
+.bodysymbol {
+    color: rgb(249 115 22 / var(--tw-bg-opacity, 1));
+    margin-bottom: 15px;
+}
+
+.symboltitle {
+    color: rgb(148 163 184 / var(--tw-text-opacity, 1));
+    font-weight: 500;
+    font-size: .875rem;
+    line-height: 1.25rem;
+}
+
+.symbolsub {
+    color: rgb(100 116 139 / var(--tw-text-opacity, 1));
+    font-size: .75rem;
+    line-height: 1rem;
+    margin-top: .25rem;
+}
+
+.editouter {
+    padding: 1em;
+    max-height: 24rem;
+    overflow-y: auto;
+}
+
+.editcontainer {
+    padding: 1em;
+    border-color: rgb(71 85 105 / var(--tw-border-opacity, 1));
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.editheader {
+    color: rgb(249 115 22 / var(--tw-bg-opacity, 1));
+    letter-spacing: .05em;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: .875rem;
+    line-height: 1.25rem;
+}
+
+.editsub {
+    color: rgb(203 213 225 / var(--tw-text-opacity, 1));
+    letter-spacing: .05em;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: .75rem;
+    line-height: 1rem;
+    margin-top: 2rem;
+}
+
+.inputrow {
+    display: flex;
+    justify-content: space-between;
+}
+
+.productinput {
+    margin-top: 10px;
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+    padding-left: .75rem;
+    padding-right: .75rem;
+    background-color: rgb(51 65 85 / var(--tw-bg-opacity, 1));
+    border-color: rgb(71 85 105 / var(--tw-border-opacity, 1));
+    border-width: 1px;
+    width: 100%;
+    min-width: 175px;
+    height: 2rem;
+    border-top-left-radius: calc(-2px + 0.5rem);
+    border-top-right-radius: calc(-2px + 0.5rem);
+    border-bottom-right-radius: calc(-2px + 0.5rem);
+    border-bottom-left-radius: calc(-2px + 0.5rem);
+    color: white;
+    /* grow, shrink, min width */
+}
+
+.descriptiondiv {
+    margin-top: 10px;
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+    padding-left: .75rem;
+    padding-right: .75rem;
+    background-color: rgb(51 65 85 / var(--tw-bg-opacity, 1));
+    border-color: rgb(71 85 105 / var(--tw-border-opacity, 1));
+    border-width: 1px;
+    width: 100%;
+    height: 2rem;
+    border-top-left-radius: calc(-2px + 0.5rem);
+    border-top-right-radius: calc(-2px + 0.5rem);
+    border-bottom-right-radius: calc(-2px + 0.5rem);
+    border-bottom-left-radius: calc(-2px + 0.5rem);
+    color: white;
+}
+
+.addbtn {
+    width: 100%;
+    cursor: pointer;
+    color: rgb(197, 197, 197);
+    font-size: .875rem;
+    line-height: 1.25rem;
+    font-weight: 500;
+    border-radius: 5px;
+    height: 2.25rem;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.buttonrow {
+    padding-top: .5rem;
+    display: flex;
+    gap: .5rem;
+    padding: 1em;
+
+}
+
+.savebtn {
+    background-color: rgb(234 88 12 / var(--tw-bg-opacity, 1));
+    font-weight: 500;
+    font-size: .875rem;
+    line-height: 1.25rem;
+    padding-left: .75rem;
+    padding-right: .75rem;
+    border-radius: 5px;
+    flex: 1 1 0%;
+    height: 2.25rem;
+    color: white;
+}
+
+.cancelbtn {
+    background-color: white;
+    font-weight: 500;
+    font-size: .875rem;
+    line-height: 1.25rem;
+    padding-left: .75rem;
+    padding-right: .75rem;
+    border-radius: 5px;
+    flex: 1 1 0%;
+    height: 2.25rem;
+    color: rgb(197, 197, 197);
+    cursor: pointer;
+}

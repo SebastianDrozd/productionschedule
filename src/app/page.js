@@ -1,95 +1,51 @@
+"use client"
 import Image from "next/image";
 import styles from "./page.module.css";
-
+import { CalendarIcon, Factory, Package, Blend } from 'lucide-react';
+import { useState } from "react";
+import PackageTab from "@/tabs/PackageTab";
+import ProductionTab from "@/tabs/ProductionTab";
+import GrindingTab from "@/tabs/GrindingTab";
 export default function Home() {
+  const [activeTab, setActiveTab] = useState("Packaging")
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol>
-          <li>
-            Get started by editing <code>src/app/page.js</code>.
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.secondary}
-          >
-            Read our docs
-          </a>
+    <div className={styles.container}>
+      <div className={styles.datepicker}>
+        <input className={styles.date} type="date" />
+      </div>
+      <div className={styles.tabcontainer}>
+        <div
+          className={`${styles.tabitem} ${activeTab === "Packaging" ? styles.activetab : ""}`}
+          onClick={() => setActiveTab("Packaging")}
+        >
+          <Package height={16} />
+          Packaging
         </div>
-      </main>
-      <footer className={styles.footer}>
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+
+        <div
+          className={`${styles.tabitem} ${activeTab === "Production" ? styles.activetab : ""}`}
+          onClick={() => setActiveTab("Production")}
         >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+          <Factory height={16} />
+          Production
+        </div>
+
+        <div
+          className={`${styles.tabitem} ${activeTab === "Grinding" ? styles.activetab : ""}`}
+          onClick={() => setActiveTab("Grinding")}
         >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+          <Blend height={16} />
+          Grinding
+        </div>
+      </div>
+
+      <div className={styles.tabcontainerlayout}>
+        {activeTab == "Packaging" && <PackageTab/>}
+        {activeTab == "Production" && <ProductionTab/>}
+        {activeTab == "Grinding" && <GrindingTab/>}
+      </div>
+
     </div>
+
   );
 }

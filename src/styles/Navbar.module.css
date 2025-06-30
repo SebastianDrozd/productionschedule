@@ -1,0 +1,121 @@
+.container {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    background-color: #1E293B;
+    border-bottom: 0.5px solid rgb(97, 97, 97);
+    border-color: rgb(51 65 85 / var(--tw-border-opacity, 1));
+}
+
+.leftcontainer {
+    display: flex;
+    gap: 1em;
+    align-items: center;
+}
+
+.logolayout {
+    width: 3rem;
+    height: 3rem;
+    background-color: rgb(249 115 22 / var(--tw-bg-opacity, 1));
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+    border-bottom-left-radius: 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-color: hsl(var(--border));
+
+}
+
+.logo {
+    color: white;
+    width: 1.75rem;
+    height: 1.75rem;
+}
+
+.headertext {
+    color: white;
+    font-weight: bold;
+}
+
+.headersub {
+    color: rgb(148 163 184 / var(--tw-text-opacity, 1));
+    font-weight: 500;
+}
+
+.rightcontainer {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+}
+.lastupdated{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.25em;
+}
+
+.lasttitle {
+    color: rgb(100 116 139 / var(--tw-text-opacity, 1));
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 0.75rem;
+    line-height: 1rem;
+}
+
+.lastsub {
+    color: rgb(203 213 225 / var(--tw-text-opacity, 1));
+    font-weight: 600;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+}
+
+.buttons {
+    display: flex;
+    gap:1em
+}
+
+.pdfbutton {
+    color: rgb(255 255 255 / var(--tw-text-opacity, 1));
+    background-color: rgb(59 130 246 / var(--tw-bg-opacity, 1));
+    border-radius: 5px;
+    height: 2.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+    padding-top: 0.75em;
+    padding-bottom: 0.75em;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    font-weight: 500;
+    gap: 0.5em;
+    cursor: pointer;
+}
+.innerlogo{
+    font-size: 10px !important;
+}
+.logout{
+     color: rgb(255 255 255 / var(--tw-text-opacity, 1));
+    background-color: rgb(249 115 22 / var(--tw-bg-opacity, 1));
+    border-radius: 5px;
+    height: 2.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+    padding-top: 0.75em;
+    padding-bottom: 0.75em;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    font-weight: 500;
+    gap: 0.5em;
+    cursor: pointer;
+}

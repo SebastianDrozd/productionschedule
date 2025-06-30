@@ -1,0 +1,147 @@
+.container {
+  padding: 12px;
+}
+
+.months {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+@media (min-width: 640px) {
+  .months {
+    flex-direction: row;
+  }
+}
+
+.month {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.caption {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding-top: 4px;
+}
+
+.captionLabel {
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.nav {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+
+.navButton {
+  height: 28px;
+  width: 28px;
+  background: transparent;
+  padding: 0;
+  opacity: 0.5;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.navButton:hover {
+  opacity: 1;
+}
+
+.navButtonPrevious {
+  position: absolute;
+  left: 4px;
+}
+
+.navButtonNext {
+  position: absolute;
+  right: 4px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.headRow {
+  display: flex;
+}
+
+.headCell {
+  width: 36px;
+  text-align: center;
+  font-size: 0.8rem;
+  font-weight: normal;
+  color: #888;
+  border-radius: 4px;
+}
+
+.row {
+  display: flex;
+  margin-top: 8px;
+}
+
+.cell {
+  height: 36px;
+  width: 36px;
+  padding: 0;
+  position: relative;
+  text-align: center;
+  font-size: 0.875rem;
+}
+
+.day {
+  height: 36px;
+  width: 36px;
+  background: none;
+  border: none;
+  padding: 0;
+  font-weight: normal;
+  opacity: 1;
+  cursor: pointer;
+}
+
+.daySelected {
+  background-color: #0d6efd;
+  color: white;
+}
+
+.dayToday {
+  background-color: #e0f7fa;
+  color: #007b8f;
+}
+
+.dayOutside {
+  color: #aaa;
+  opacity: 0.5;
+}
+
+.dayDisabled {
+  color: #ccc;
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.dayRangeMiddle {
+  background-color: #cfe2ff;
+  color: #084298;
+}
+
+.dayRangeEnd {
+  border-radius: 0 50% 50% 0;
+}
+
+.dayHidden {
+  visibility: hidden;
+}
+
+.chevron {
+  width: 16px;
+  height: 16px;
+}
