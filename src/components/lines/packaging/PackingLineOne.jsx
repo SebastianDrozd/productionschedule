@@ -23,38 +23,59 @@ const PackingLineOne = () => {
     const [wantsEdit, setWantsEdit] = useState(false)
     const [description, setDescription] = useState("")
     const [productCode, setProductCode] = useState("")
-    const [products,setProducts] = useState([{
-            productCode : "",
-            productionEntry : "",
-            tooling : "",
-            block : ""
-        }])
+    const [products, setProducts] = useState([{
+        productCode: "",
+        description: "",
+        productionEntry: "",
+        tooling: "",
+        block: ""
+    }])
 
-    const handleProductSelect = (event,index) => {
-        const updatedProducts = products
-        console.log("this is current product",updatedProducts[index])
-        if (event.key === "Enter") {
-            for (const x of data) {
-                if (x.product == productCode) {
-                    updatedProducts[index].description = x.description;
-                }
-            }
-        }
-    }
+    const handleProductSelect = (event, index) => {
+        const value = event.target.value;
+        const match = data.find(x => x.product === value);
+
+        const updatedProducts = [...products];
+        updatedProducts[index] = {
+            ...updatedProducts[index],
+            productCode: value,
+            description: match ? match.description : "" // or leave unchanged if you prefer
+        };
+
+        setProducts(updatedProducts);
+    };
     const handleAddProducts = () => {
         const product = {
-            productCode : "",
-            productionEntry : "",
-            tooling : "",
-            block : ""
+            productCode: "",
+            description: "",
+            productionEntry: "",
+            tooling: "",
+            block: ""
         }
-        setProducts([...products,product])
+        setProducts([...products, product])
     }
 
-    const handleProductionEntry = (e,index) => {
-        const updatedProducts = products;
+    const handleProductionEntry = (e, index) => {
+        const updatedProducts = [...products]
         updatedProducts[index].productionEntry = e.target.value
         setProducts(updatedProducts)
+    }
+
+    const handleTooling = (e, index) => {
+        const updatedProducts = [...products]
+        updatedProducts[index].tooling = e.target.value;
+        setProducts(updatedProducts)
+
+    }
+    const handleBlock = (e, index) => {
+        const updatedProducts = [...products]
+        updatedProducts[index].block = e.target.value;
+        setProducts(updatedProducts)
+    }
+
+    const handleSaveConfig = () => {
+        console.log(products)
+        setWantsEdit(false)
     }
 
 
@@ -75,17 +96,17 @@ const PackingLineOne = () => {
                     <div onClick={() => { setWantsEdit(!wantsEdit) }} className={styles.editbutton}><Edit /></div>
                 </div>
             </div>
-            {wantsEdit ?<> <div className={styles.editouter}>
-                {products && products.map((product,index) => (<div key={index} className={styles.editcontainer}>
+            {wantsEdit ? <> <div className={styles.editouter}>
+                {products && products.map((product, index) => (<div key={index} className={styles.editcontainer}>
                     <h3 className={styles.editheader}>Product {index + 1}</h3>
                     <div className={styles.inputrow}>
-                        <div>
+                        <div className={styles.inputcontainer}>
                             <p className={styles.editsub}>Product Code</p>
-                            <input placeholder="Enter product code" className={styles.productinput} onKeyDown={(e) => handleProductSelect(e, index)} onChange={(e) => { setProductCode(e.target.value) }} />
+                            <input placeholder="Enter product code" value={product.productCode} className={styles.productinput} onChange={(e) => handleProductSelect(e, index)} />
                         </div>
-                        <div>
+                        <div className={styles.inputcontainer}>
                             <p className={styles.editsub}>production Entry</p>
-                            <input placeholder="Enter production entry" className={styles.productinput} onChange={(e) => { handleProductionEntry(e,index) }} />
+                            <input placeholder="Enter production entry" value={product.productionEntry} className={styles.productinput} onChange={(e) => { handleProductionEntry(e, index) }} />
                         </div>
                     </div>
 
@@ -94,37 +115,45 @@ const PackingLineOne = () => {
                         {product.description}
                     </div>
                     <div className={styles.inputrow}>
-                        <div>
+                        <div className={styles.inputcontainer}>
                             <p className={styles.editsub}>Tooling</p>
-                            <input placeholder="Enter Tooling" className={styles.productinput} onKeyDown={handleProductSelect} onChange={(e) => { setProductCode(e.target.value) }} />
+                            <input placeholder="Enter Tooling" className={styles.productinput} value={product.tooling} onChange={(e) => { handleTooling(e, index) }} />
                         </div>
-                        <div>
+                        <div className={styles.inputcontainer}>
                             <p className={styles.editsub}>Block</p>
-                            <input placeholder="Enter block" className={styles.productinput} onKeyDown={handleProductSelect} onChange={(e) => { setProductCode(e.target.value) }} />
+                            <input placeholder="Enter block" className={styles.productinput} value={product.block} onChange={(e) => { handleBlock(e, index) }} />
                         </div>
                     </div>
                 </div>))}
-                
+
                 <div className={styles.addbuttondiv}>
                     <button onClick={handleAddProducts} className={styles.addbtn}>Add Product</button>
                 </div>
-               
+
             </div>
-             <div className={styles.buttonrow}>
-                    <button className={styles.savebtn}>SAVE CONFIG</button>
-                    <button onClick={() => {setWantsEdit(false)}} className={styles.cancelbtn}>CANCEL</button>
+                <div className={styles.buttonrow}>
+                    <button onClick={handleSaveConfig} className={styles.savebtn}>SAVE CONFIG</button>
+                    <button onClick={() => { setWantsEdit(false) }} className={styles.cancelbtn}>CANCEL</button>
                 </div>
             </>
-                :
-                <div className={styles.cardbody}>
-                    <div className={styles.bodysymbol}>
-                        <AlertTriangle height={35} width={35} />
+                : products.length > 1 ?
+                    <div className={styles.displayouterdiv}>
+                        {products.map((product,index) =>
+                        (<div key={index} className={styles.displayitem}>
+                            
+                        </div>))}
+
                     </div>
-                    <div className={styles.symboltitle}>
-                        <p>LINE OFFLINE</p>
-                    </div>
-                    <div className={styles.symbolsub}><p>Click Edit to configure packaging line</p></div>
-                </div>}
+                    :
+                    <div className={styles.cardbody}>
+                        <div className={styles.bodysymbol}>
+                            <AlertTriangle height={35} width={35} />
+                        </div>
+                        <div className={styles.symboltitle}>
+                            <p>LINE OFFLINE</p>
+                        </div>
+                        <div className={styles.symbolsub}><p>Click Edit to configure packaging line</p></div>
+                    </div>}
 
         </div>
     )

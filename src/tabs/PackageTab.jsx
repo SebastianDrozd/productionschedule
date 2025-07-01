@@ -7,6 +7,8 @@ const PackageTab = () => {
            <PackageHeaders/>
             <div className={styles.linecontainer}>
             <PackingLineOne/>
+            <PackingLineOne/>
+            <PackingLineOne/>
             </div>
         </div>
     )
