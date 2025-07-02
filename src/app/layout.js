@@ -1,6 +1,8 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
+import QueryProvider from "@/util/QueryProvider";
+import MyContextProvider from "@/util/MyContextProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -21,10 +23,14 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}> 
+        <MyContextProvider>
+        <QueryProvider>
         <div className="container">
         <Navbar/>
         {children}
         </div>
+        </QueryProvider>
+        </MyContextProvider>
       </body>
     </html>
   );

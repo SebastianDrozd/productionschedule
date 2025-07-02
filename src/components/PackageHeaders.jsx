@@ -1,10 +1,21 @@
 import styles from "../styles/headers/PackageHeader.module.css"
-const PackageHeaders = () => {
+const PackageHeaders = ({headersContent}) => {
+      const uniqueProducts = new Set();
+      const uniqueLines = new Set();
+  headersContent?.forEach((item) => {
+    if (item?.ProductCode) {
+      uniqueProducts.add(item.ProductCode);
+      uniqueLines.add(item.Line)
+    }
+  });
+  console.log("unique prouducts",uniqueProducts)
+
+  console.l
     return (
         <div className={styles.container}>
             <div className={styles.totalcard}>
                 <div className={styles.left}>
-                    <h1 className={styles.cardheader}>3</h1>
+                    <h1 className={styles.cardheader}>6</h1>
                     <p className={styles.cardsub}>Total Lines</p>
                 </div>
                 <div className={styles.right}>
@@ -13,8 +24,8 @@ const PackageHeaders = () => {
             </div>
              <div className={styles.totalcard}>
                 <div className={styles.left}>
-                    <h1 className={styles.cardheadergreen}>3</h1>
-                    <p className={styles.cardsub}>Total Lines</p>
+                    <h1 className={styles.cardheadergreen}>{uniqueLines.size}</h1>
+                    <p className={styles.cardsub}>Active Lines</p>
                 </div>
                 <div className={styles.right}>
                     <div className={styles.dotgreen}></div>
@@ -22,8 +33,8 @@ const PackageHeaders = () => {
             </div>
              <div className={styles.totalcard}>
                 <div className={styles.left}>
-                    <h1 className={styles.cardheaderorange}>3</h1>
-                    <p className={styles.cardsub}>Total Lines</p>
+                    <h1 className={styles.cardheaderorange}>{uniqueProducts.size}</h1>
+                    <p className={styles.cardsub}>Total Products</p>
                 </div>
                 <div className={styles.right}>
                     <div className={styles.dotorange}></div>
@@ -31,8 +42,8 @@ const PackageHeaders = () => {
             </div>
              <div className={styles.totalcard}>
                 <div className={styles.left}>
-                    <h1 className={styles.cardheadergrey}>3</h1>
-                    <p className={styles.cardsub}>Total Lines</p>
+                    <h1 className={styles.cardheadergrey}>{6 - uniqueLines.size}</h1>
+                    <p className={styles.cardsub}>IDle Lines</p>
                 </div>
                 <div className={styles.right}>
                     <div className={styles.dotgrey}></div>

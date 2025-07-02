@@ -7,12 +7,16 @@
   color: white;
   cursor: pointer;
   width: 200px;
+  
 }
 
 .container {
   margin-top: 2em;
   padding-left: 1.5rem;
   padding-right: 1.5rem;
+}
+.headersdiv{
+  margin-top: 1em;
 }
 
 .tabcontainer {
@@ -43,4 +47,12 @@
 .activetab {
   background-color: rgb(249 115 22 / var(--tw-bg-opacity, 1));
   color: white;
+}
+.customDateInput {
+  background-color: #1e293b;
+  color: white;
+  border: 1px solid #475569;
+  border-radius: 6px;
+  padding: 0.5rem 0.75rem;
+  cursor: pointer;
 }

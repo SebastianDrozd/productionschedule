@@ -1,10 +1,10 @@
 "use client"
 import { useContext, useEffect, useState } from "react";
-import styles from "../../../styles/lines/packaging/PackingLineOne.module.css"
+import styles from "../../../styles/lines/production/ProductionLine.module.css"
 import { Edit, Settings, Power, AlertTriangle, Package, Factory, Blend, Plus, Trash2 } from 'lucide-react';
 import { MyContext } from "@/util/MyContextProvider";
 
-const PackingLineOne = ({ line, savePackagingProduct, lineinfo }) => {
+const ProductionLine = ({ line, savePackagingProduct, lineinfo }) => {
     const myContext = useContext(MyContext)
     console.log("this is line info in packagling line", lineinfo)
     const data = [
@@ -86,7 +86,7 @@ const PackingLineOne = ({ line, savePackagingProduct, lineinfo }) => {
 
     const handleWantsEdit = () => {
         setWantsEdit(!wantsEdit)
-        if (products.length == 0) {
+        if (products?.length == 0) {
             const product = {
                 ProductCode: "",
                 Description: "",
@@ -111,11 +111,11 @@ const PackingLineOne = ({ line, savePackagingProduct, lineinfo }) => {
                     </div>
                     <div className={styles.textdiv}>
                         <h2 className={styles.textheader}>LINE {line}</h2>
-                        <p className={styles.textsub}>{products.length > 0 ? products.length + " Products" : "Offline"}</p>
+                        <p className={styles.textsub}>{products?.length > 0 ? products?.length + " Products" : "Offline"}</p>
                     </div>
                 </div>
                 <div className={styles.cardright}>
-                    {products.length > 0 ? <div className={styles.powericon}><Power /></div> : <div className={styles.alertriangle}><AlertTriangle /></div>}
+                    {products?.length > 0 ? <div className={styles.powericon}><Power /></div> : <div className={styles.alertriangle}><AlertTriangle /></div>}
                     <div onClick={handleWantsEdit} className={styles.editbutton}><Edit /></div>
                 </div>
             </div>
@@ -160,9 +160,9 @@ const PackingLineOne = ({ line, savePackagingProduct, lineinfo }) => {
                     <button onClick={() => { setWantsEdit(false) }} className={styles.cancelbtn}>CANCEL</button>
                 </div>
             </>
-                : products.length > 0 ?
+                : products?.length > 0 ?
                     <div className={styles.displayouterdiv}>
-                        {products.map((product, index) =>
+                        {products?.map((product, index) =>
                         (<div key={index} className={styles.displayitem}>
                             <div className={styles.displaytoprow}>
                                 <div className={styles.displaydot}></div>
@@ -201,7 +201,7 @@ const PackingLineOne = ({ line, savePackagingProduct, lineinfo }) => {
                         <div className={styles.symboltitle}>
                             <p>LINE OFFLINE</p>
                         </div>
-                        <div className={styles.symbolsub}><p>Click Edit to configure packaging line</p></div>
+                        <div className={styles.symbolsub}><p>Click Edit to configure production line</p></div>
                     </div>}
 
         </div>
@@ -209,4 +209,4 @@ const PackingLineOne = ({ line, savePackagingProduct, lineinfo }) => {
 }
 
 
-export default PackingLineOne;
+export default ProductionLine;
